@@ -30,7 +30,7 @@ do
 			# ancien à la fin du grep entre crochets $'\x01'$'\x02'
 			# Maintenant retire caractères de control [:cntrl:] en les transformants en espace insécable le temps du test de la ligne
 			# Maintenant retire les blancs [:blank:] en les transformants en espace le temps du test de la ligne
-			contient=$(echo $ligne | tr [:blank:] " " | grep -e [^" ""	"" "" "])
+			contient=$(echo $ligne | tr [:cntrl:] " " | tr [:blank:] " " | grep -e [^" ""	"" "" "])
 			if [[ $contient != "" ]]
 			then
 			
