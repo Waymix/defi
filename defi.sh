@@ -83,7 +83,7 @@ do
 			done
 			
 			# Forme de la ligne
-			FORME='^[on]:[0-9]{3}[\:][a-z]+[\:][0-9]+[\:][0-9]+$'
+			FORME='^[on]:[0-9]{3}[\:][a-z]+[\:][0-9]+[\:][0-9]+[" "]*$'
 			
 			# Si le ligne 2 ou sup et ligne de la forme
 			if [ $numeroLigne -ge 2 ] && [[ $ligne =~ $FORME ]]
