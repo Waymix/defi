@@ -30,7 +30,7 @@ do
 			# ancien à la fin du grep entre crochets $'\x01'$'\x02'
 			# Maintenant retire caractères de control [:cntrl:] en les transformants en espace insécable le temps du test de la ligne
 			# Maintenant retire les blancs [:blank:] en les transformants en espace le temps du test de la ligne
-			contient=$(echo $ligne | tr [:cntrl:] " " | tr [:blank:] " " | grep -e [^" ""	"" "" "])
+			contient=$(echo $ligne | tr [:cntrl:] " " | tr [:blank:] " " | grep -e [^" "$'\xe2\x80\xaf'$'\xc2\xa0'])
 			if [[ $contient != "" ]]
 			then
 			
@@ -39,7 +39,7 @@ do
 			fi
 			
 			# Forme de la ligne
-			FORME='^[on]:[0-9]{3}[\:][a-z]+[\:][0-9]+[\:][0-9]+[" ""	"" "" "]*$'
+			FORME='^[on]:[0-9]{3}[\:][a-z]+[\:][0-9]+[\:][0-9]+$'
 			
 			# Si le ligne 2 ou sup et ligne de la forme
 			if [ $numeroLigne -ge 2 ] && [[ $ligne =~ $FORME ]]
