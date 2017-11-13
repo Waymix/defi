@@ -94,8 +94,30 @@ do
 					# Si la ligne n est pas vide
 					if [ $vide = false ]
 					then
-					
+						
 						echo "$ligne"
+						
+						# Définition des types de lignes
+						# OLINES lignes commençant par o
+						# NLINES lignes commençant par n
+						OLINES='^[o][\:][0-9]{3}[\:][a-z]+[\:][0-9]+[\:][0-9]+$'
+						NLINES='^[n][\:][0-9]{3}[\:][a-z]+[\:][0-9]+[\:][0-9]+$'
+						
+						if [[ $ligne =~ $OLINES ]]
+						then
+							
+							# Envoyer dans o_lines
+							echo $ligne >> o_lines
+							
+						fi
+						
+						if [[ $ligne =~ $NLINES ]]
+						then
+							
+							# Envoyer dans n_lines
+							echo $ligne >> n_lines
+							
+						fi
 						
 					fi
 					
