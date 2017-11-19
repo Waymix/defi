@@ -3,6 +3,21 @@
 # Separateur de liste est le retour a la ligne
 IFS=$'\n'
 
+# Suppresion ancien fichiers
+if [ -f "o_lines" ]
+then
+	
+	rm "o_lines"
+	
+fi
+
+if [ -f "n_lines" ]
+then
+	
+	rm "n_lines"
+	
+fi
+
 # Parcourir les fichiers
 for fichier in $(ls -a --file-type | grep -v "/" | grep -v "@")
 do
